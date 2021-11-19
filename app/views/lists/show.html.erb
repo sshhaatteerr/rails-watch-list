@@ -1,0 +1,13 @@
+<p>
+  <strong>Name:</strong>
+  <%= @list.name %>
+</p>
+
+<ul>
+<% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <li><%= movie.title %><%= movie.overview %>
+
+      <%= bookmark.comment %>
+      <%= movie.rating %>
+    <% end %>
